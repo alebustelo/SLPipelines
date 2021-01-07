@@ -6,7 +6,7 @@ def call(body) {
         steps {
           script {
             sh 'echo Test'
-            sh '.\test.sh'
+            sh './test.sh'
           }
         }
       }
