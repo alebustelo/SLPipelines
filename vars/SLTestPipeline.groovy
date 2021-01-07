@@ -6,6 +6,7 @@ def call(body) {
         steps {
           script {
             sh 'echo Test'
+            sh 'chmox +x test.sh'
             sh './test.sh'
           }
         }
