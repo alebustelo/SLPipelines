@@ -1,3 +1,11 @@
+/*
+SLTestPipeline {
+  enableFirstThing = true
+  enableSecondThing = false
+  stringThing = 'This is a string test'
+}
+*/
+
 def call(body) {
   def config = [:]
   body.resolveStrategy = Closure.DELEGATE_FIRST
