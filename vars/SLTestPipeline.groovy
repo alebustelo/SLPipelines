@@ -13,7 +13,7 @@ def call(body) {
       }
       stage("Stage Two") {
         when {
-          body.enableFirsThing == 1
+          expression { return (body.enableFirsThing == 1) }
         }
         steps {
           script {
@@ -24,7 +24,7 @@ def call(body) {
       }
       stage("Stage Three") {
         when {
-          body.enableSecondThing == 1
+          expression { return (body.enableSecondThing == 1) }
         }
         steps {
           script {
