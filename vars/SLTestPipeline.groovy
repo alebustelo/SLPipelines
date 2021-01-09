@@ -10,9 +10,9 @@ def call(body) {
       stage("Stage Zero"){
         steps {
           script {
-            def enableFirstThing
-            def enableSecondThing
-            def stringThing
+            env.enableFirstThing
+            env.enableSecondThing
+            env.stringThing
             if (!(config.enableFirstThing == true || config.enableFirstThing == false)) {
               enableFirstThing = true //default value
             } else {
