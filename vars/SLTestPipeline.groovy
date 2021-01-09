@@ -33,7 +33,7 @@ def call(body) {
         }
         steps {
           script {
-            sh 'This is stage 3'
+            sh 'echo This is stage 3'
           }
         }
       }
