@@ -14,12 +14,12 @@ def call(body) {
             def enableSecondThing
             def stringThing
             if (!(config.enableFirstThing == true || config.enableFirstThing == false)) {
-              enableFirstThing = false //default value
+              enableFirstThing = true //default value
             } else {
               enableFirstThing = config.enableFirstThing
             }
             if (!(config.enableSecondThing == true || config.enableSecondThing == false)) {
-              enableSecondThing = false //default value
+              enableSecondThing = true //default value
             } else {
               enableSecondThing = config.enableSecondThing
             }
