@@ -18,7 +18,7 @@ def call(body) {
       }
       stage("Stage Two") {
         when {
-          expression { return (config.enableFirsThing == 1) }
+          expression { return (config.enableFirstThing == 1) }
         }
         steps {
           script {
