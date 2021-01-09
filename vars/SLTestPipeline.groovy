@@ -42,7 +42,7 @@ def call(body) {
       }
       stage("Stage Two") {
         when {
-          expression { return (config.enableFirstThing == 1) }
+          expression { return (config.enableFirstThing) }
         }
         steps {
           script {
@@ -53,7 +53,7 @@ def call(body) {
       }
       stage("Stage Three") {
         when {
-          expression { return (config.enableSecondThing == 0) }
+          expression { return (config.enableSecondThing) }
         }
         steps {
           script {
