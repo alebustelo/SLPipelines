@@ -1,4 +1,9 @@
 def call(body) {
+  def config = [:]
+  body.resolveStrategy = Closure.DELEGATE_FIRST
+  body.delegate = config
+  body()
+
   pipeline {
     agent any
     stages {
@@ -13,18 +18,18 @@ def call(body) {
       }
       stage("Stage Two") {
         when {
-          expression { return (body.enableFirsThing == 1) }
+          expression { return (config.enableFirsThing == 1) }
         }
         steps {
           script {
             sh 'echo This is stage 2'
-            sh "echo ${body.stringThing}"
+            sh "echo ${config.stringThing}"
           }
         }
       }
       stage("Stage Three") {
         when {
-          expression { return (body.enableSecondThing == 1) }
+          expression { return (config.enableSecondThing == 1) }
         }
         steps {
           script {
