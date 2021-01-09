@@ -42,18 +42,18 @@ def call(body) {
       }
       stage("Stage Two") {
         when {
-          expression { return (config.enableFirstThing) }
+          expression { return (enableFirstThing) }
         }
         steps {
           script {
             sh 'echo This is stage 2'
-            sh "echo ${config.stringThing}"
+            sh "echo ${stringThing}"
           }
         }
       }
       stage("Stage Three") {
         when {
-          expression { return (config.enableSecondThing) }
+          expression { return (enableSecondThing) }
         }
         steps {
           script {
