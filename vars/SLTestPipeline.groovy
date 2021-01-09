@@ -7,25 +7,31 @@ def call(body) {
   pipeline {
     agent any
     stages {
+      stage("Stage Zero"){
+        steps {
+          script {
+            def enableFirstThing
+            def enableSecondThing
+            def stringThing
+            if (!(config.enableFirstThing == true || config.enableFirstThing == false)) {
+              enableFirstThing = false //default value
+            } else {
+              enableFirstThing = config.enableFirstThing
+            }
+            if (!(config.enableSecondThing == true || config.enableSecondThing == false)) {
+              enableSecondThing = false //default value
+            } else {
+              enableSecondThing = config.enableSecondThing
+            }
+            if (config.stringThing == null || config.stringThing == "") {
+              stringThing = "default string text" //default value
+            } else {
+              stringThing = config.stringThing
+            }
+          }
+        }
+      }
       stage("Stage One"){
-        def enableFirstThing
-        def enableSecondThing
-        def stringThing
-        if (!(config.enableFirstThing == true || config.enableFirstThing == false)) {
-          enableFirstThing = false //default value
-        } else {
-          enableFirstThing = config.enableFirstThing
-        }
-        if (!(config.enableSecondThing == true || config.enableSecondThing == false)) {
-          enableSecondThing = false //default value
-        } else {
-          enableSecondThing = config.enableSecondThing
-        }
-        if (config.stringThing == null || config.stringThing == "") {
-          stringThing = "default string text" //default value
-        } else {
-          stringThing = config.stringThing
-        }
         steps {
           script {
             sh 'echo Test'
