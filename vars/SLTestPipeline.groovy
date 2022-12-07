@@ -43,6 +43,8 @@ def call(body) {
       }
       stage("Stage One"){
         steps {
+          def test = libraryResource 'test.sh'
+          writeFile(file: 'test.sh', text: test)
           script {
             sh 'echo Test'
             sh 'chmod +x test.sh'
