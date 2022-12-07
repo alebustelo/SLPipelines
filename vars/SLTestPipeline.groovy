@@ -45,11 +45,9 @@ def call(body) {
         steps {
           def test = libraryResource 'test.sh'
           writeFile(file: 'test.sh', text: test)
-          script {
-            sh 'echo Test'
-            sh 'chmod +x test.sh'
-            sh './test.sh'
-          }
+          sh 'echo Test'
+          sh 'chmod +x test.sh'
+          sh './test.sh'
         }
       }
       stage("Stage Two") {
@@ -57,10 +55,8 @@ def call(body) {
           expression { return (enableFirstThing) }
         }
         steps {
-          script {
-            sh 'echo This is stage 2'
-            sh "echo ${stringThing}"
-          }
+          echo 'This is stage 2'
+          echo stringThing
         }
       }
       stage("Stage Three") {
@@ -68,9 +64,7 @@ def call(body) {
           expression { return (enableSecondThing) }
         }
         steps {
-          script {
-            sh 'echo This is stage 3'
-          }
+          echo 'This is stage 3'
         }
       }
     }
